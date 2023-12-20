@@ -83,3 +83,4 @@ C:\Projects\Cohort Exercises\T2G_Safari\Auth_Service\obj\Debug\net7.0\refint\Aut
 C:\Projects\Cohort Exercises\T2G_Safari\Auth_Service\obj\Debug\net7.0\Auth_Service.pdb
 C:\Projects\Cohort Exercises\T2G_Safari\Auth_Service\obj\Debug\net7.0\Auth_Service.genruntimeconfig.cache
 C:\Projects\Cohort Exercises\T2G_Safari\Auth_Service\obj\Debug\net7.0\ref\Auth_Service.dll
+C:\Projects\Cohort Exercises\T2G_Safari\Auth_Service\obj\Debug\net7.0\Auth_Service.sourcelink.json

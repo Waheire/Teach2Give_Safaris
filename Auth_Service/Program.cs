@@ -2,6 +2,7 @@ using Auth_Service.Data;
 using Auth_Service.Models;
 using Auth_Service.Services;
 using Auth_Service.Services.IService;
+using Auth_Service.Utilities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -22,12 +23,15 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 //add our services
 builder.Services.AddScoped<IUser, UserService>();
+builder.Services.AddScoped<IJwt, JwtServices>();
 
 //configure Identity Framework
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
 
 //Add Auto mapper
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection("JwtOptions"));
 
 var app = builder.Build();
 

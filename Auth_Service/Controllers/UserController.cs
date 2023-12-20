@@ -1,5 +1,6 @@
 ﻿using Auth_Service.Models.Dtos;
 using Auth_Service.Services.IService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -30,6 +31,23 @@ namespace Auth_Service.Controllers
             }
             _responseDto.ErrorMessage = res;
             _responseDto.IsSuccess = false;
+            return BadRequest(_responseDto);
+        }
+
+        [HttpPost("Assign Role")]
+        [Authorize("Admin")]
+        public async Task<ActionResult<ResponseDto>> AssignRole(AddUserRoleDto addUserRoleDto)
+        {
+            var res = await _userService.AssignUserRoles(addUserRoleDto);
+            if (res)
+            {
+                //this was success
+                _responseDto.Result = res;
+                return Ok(_responseDto);
+            }
+            _responseDto.ErrorMessage = "An Error Occurred!";
+            _responseDto.IsSuccess = false;
+            _responseDto.Result = false;
             return BadRequest(_responseDto);
         }
 

@@ -14,19 +14,40 @@ namespace Auth_Service.Services
         private readonly IMapper _mapper;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly IJwt _jwtServices;
 
-        public UserService(AppDbContext context, IMapper mapper, RoleManager<IdentityRole> roleManager, UserManager<ApplicationUser> userManager)
+        public UserService(AppDbContext context, IMapper mapper, RoleManager<IdentityRole> roleManager, UserManager<ApplicationUser> userManager, IJwt jwtServices)
         {
             _context = context;
             _mapper = mapper;
             _roleManager = roleManager;
             _userManager = userManager;
+            _jwtServices = jwtServices;
         }
 
 
-        public Task<bool> AssignUserRoles(AddUserRoleDto addUserRoleDto)
+        public async Task<bool> AssignUserRoles(AddUserRoleDto addUserRoleDto)
         {
-            throw new NotImplementedException();
+            // a user with thet username exists
+            var user = await _context.ApplicationUsers.Where(x => x.Email.ToLower() == addUserRoleDto.Email.ToLower()).FirstOrDefaultAsync();
+            //check if user exists
+            if (user == null)
+            {
+                return false;
+            }
+            else 
+            {
+                //does the role exist
+                if (!_roleManager.RoleExistsAsync(addUserRoleDto.RoleName).GetAwaiter().GetResult()) 
+                {
+                    //create role
+                    await _roleManager.CreateAsync(new IdentityRole(addUserRoleDto.RoleName));
+                }
+
+                //assign the user the role
+                await _userManager.AddToRoleAsync(user, addUserRoleDto.RoleName);
+                return true;
+            }
         }
 
         public async Task<LoginResponseDto> LoginUser(LoginRequestDto loginRequestDto)
@@ -43,10 +64,12 @@ namespace Auth_Service.Services
                 return new LoginResponseDto();
             }
             var loggedUser = _mapper.Map<UserResponseDto>(user);
+            var roles = await _userManager.GetRolesAsync(user);
+            var token = _jwtServices.GenerateToken(user, roles);
             var response = new LoginResponseDto()
             {
                 User = loggedUser,
-                Token = "Coming soon....!"
+                Token = token
             };
             return response;
         }
@@ -63,6 +86,15 @@ namespace Auth_Service.Services
                 //if succeeded
                 if (response.Succeeded)
                 {
+                    //does the role exist
+                    if (!_roleManager.RoleExistsAsync(userDto.Role).GetAwaiter().GetResult())
+                    {
+                        //create role
+                        await _roleManager.CreateAsync(new IdentityRole(userDto.Role));
+                    }
+
+                    //assign the user the role
+                    await _userManager.AddToRoleAsync(user, userDto.Role);
                     return string.Empty;
                 } else 
                 {
