@@ -3,6 +3,8 @@ using Auth_Service.Services.IService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SafariMessageBus;
+
 
 namespace Auth_Service.Controllers
 {
@@ -12,10 +14,12 @@ namespace Auth_Service.Controllers
     {
         private readonly IUser _userService;
         private readonly ResponseDto _responseDto;
+        private readonly IConfiguration _configuration;
 
-        public UserController(IUser userService)
+        public UserController(IUser userService, IConfiguration configuration)
         {
             _userService = userService;
+            _configuration = configuration;
             _responseDto = new ResponseDto(); 
         }
 
@@ -27,6 +31,17 @@ namespace Auth_Service.Controllers
             {
                 //this was success
                 _responseDto.Result = "User Registered Successfully";
+
+                //add message to queue
+                var message = new UserMessageDto()
+                {
+                    Name = registerUserDto.Name,
+                    Email = registerUserDto.Email,
+                };
+
+                var mb = new MessageBus();
+                await mb.PublishMessage(message, _configuration.GetValue<string>("ServiceBus:register"));
+
                 return Created("", _responseDto);
             }
             _responseDto.ErrorMessage = res;

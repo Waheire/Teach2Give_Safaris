@@ -84,3 +84,9 @@ C:\Projects\Cohort Exercises\T2G_Safari\Auth_Service\obj\Debug\net7.0\Auth_Servi
 C:\Projects\Cohort Exercises\T2G_Safari\Auth_Service\obj\Debug\net7.0\Auth_Service.genruntimeconfig.cache
 C:\Projects\Cohort Exercises\T2G_Safari\Auth_Service\obj\Debug\net7.0\ref\Auth_Service.dll
 C:\Projects\Cohort Exercises\T2G_Safari\Auth_Service\obj\Debug\net7.0\Auth_Service.sourcelink.json
+C:\Projects\Cohort Exercises\T2G_Safari\Auth_Service\bin\Debug\net7.0\Azure.Core.Amqp.dll
+C:\Projects\Cohort Exercises\T2G_Safari\Auth_Service\bin\Debug\net7.0\Azure.Messaging.ServiceBus.dll
+C:\Projects\Cohort Exercises\T2G_Safari\Auth_Service\bin\Debug\net7.0\Microsoft.Azure.Amqp.dll
+C:\Projects\Cohort Exercises\T2G_Safari\Auth_Service\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Projects\Cohort Exercises\T2G_Safari\Auth_Service\bin\Debug\net7.0\SafariMessageBus.dll
+C:\Projects\Cohort Exercises\T2G_Safari\Auth_Service\bin\Debug\net7.0\SafariMessageBus.pdb

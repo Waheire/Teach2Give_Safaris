@@ -28,7 +28,7 @@ namespace Auth_Service.Services
 
         public async Task<bool> AssignUserRoles(AddUserRoleDto addUserRoleDto)
         {
-            // a user with thet username exists
+            // a user with that username exists
             var user = await _context.ApplicationUsers.Where(x => x.Email.ToLower() == addUserRoleDto.Email.ToLower()).FirstOrDefaultAsync();
             //check if user exists
             if (user == null)

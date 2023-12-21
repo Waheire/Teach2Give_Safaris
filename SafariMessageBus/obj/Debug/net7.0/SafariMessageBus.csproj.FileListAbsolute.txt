@@ -1,0 +1,13 @@
+C:\Projects\Cohort Exercises\T2G_Safari\SafariMessageBus\bin\Debug\net7.0\SafariMessageBus.deps.json
+C:\Projects\Cohort Exercises\T2G_Safari\SafariMessageBus\bin\Debug\net7.0\SafariMessageBus.dll
+C:\Projects\Cohort Exercises\T2G_Safari\SafariMessageBus\bin\Debug\net7.0\SafariMessageBus.pdb
+C:\Projects\Cohort Exercises\T2G_Safari\SafariMessageBus\obj\Debug\net7.0\SafariMessageBus.csproj.AssemblyReference.cache
+C:\Projects\Cohort Exercises\T2G_Safari\SafariMessageBus\obj\Debug\net7.0\SafariMessageBus.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\Cohort Exercises\T2G_Safari\SafariMessageBus\obj\Debug\net7.0\SafariMessageBus.AssemblyInfoInputs.cache
+C:\Projects\Cohort Exercises\T2G_Safari\SafariMessageBus\obj\Debug\net7.0\SafariMessageBus.AssemblyInfo.cs
+C:\Projects\Cohort Exercises\T2G_Safari\SafariMessageBus\obj\Debug\net7.0\SafariMessageBus.csproj.CoreCompileInputs.cache
+C:\Projects\Cohort Exercises\T2G_Safari\SafariMessageBus\obj\Debug\net7.0\SafariMessageBus.sourcelink.json
+C:\Projects\Cohort Exercises\T2G_Safari\SafariMessageBus\obj\Debug\net7.0\SafariMessageBus.dll
+C:\Projects\Cohort Exercises\T2G_Safari\SafariMessageBus\obj\Debug\net7.0\refint\SafariMessageBus.dll
+C:\Projects\Cohort Exercises\T2G_Safari\SafariMessageBus\obj\Debug\net7.0\SafariMessageBus.pdb
+C:\Projects\Cohort Exercises\T2G_Safari\SafariMessageBus\obj\Debug\net7.0\ref\SafariMessageBus.dll

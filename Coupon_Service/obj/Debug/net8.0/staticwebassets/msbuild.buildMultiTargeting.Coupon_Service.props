@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Coupon_Service.props" />
+</Project>
